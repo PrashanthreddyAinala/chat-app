@@ -38,7 +38,7 @@ const Chat = () => {
               myChats.filter(c=> c.id !== chat.id).sort((a,b)=> a.id - b.id)
             );
           }}
-          onNewChat={(chatId, message)=> {
+          onNewMessage={(chatId, message)=> {
             if(selectedChat && chatId === selectedChat.id) {
               setSelectedChat({
                 ...selectedChat, 
