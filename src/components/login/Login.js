@@ -52,6 +52,7 @@ const Login = () => {
                 
             </Formik>
             <p className="signup"><Link to="/signup" style={{textDecoration: "none", color: "#9ca3af"}}>Signup</Link></p>
+            <p>Email: test@user.com  password : 123456</p>
             {!!serverError && <div className="error">{serverError}</div>}
         </div>
     )
