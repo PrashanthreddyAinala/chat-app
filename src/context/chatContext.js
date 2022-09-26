@@ -12,7 +12,7 @@ export const ChatProvider = ({ children, authUser }) => {
   const createChatClick = () => {
     newChat(chatConfig, { title: '' });
   };
-  const deleteChatClick = chat => {
+  const deleteChatClick = (chat) => {
     const isAdmin = chat.admin.username === chatConfig.userName;
 
     if (
@@ -24,8 +24,8 @@ export const ChatProvider = ({ children, authUser }) => {
       leaveChat(chatConfig, chat.id, chatConfig.userName);
     }
   };
-  const selectChatClick = chat => {
-    getMessages(chatConfig, chat.id, messages => {
+  const selectChatClick = (chat) => {
+    getMessages(chatConfig, chat.id, (messages) => {
       setSelectedChat({
         ...chat,
         messages,
@@ -38,7 +38,7 @@ export const ChatProvider = ({ children, authUser }) => {
       fb.firestore
         .collection('chatUsers')
         .doc(authUser.uid)
-        .onSnapshot(snap => {
+        .onSnapshot((snap) => {
           setChatConfig({
             userSecret: authUser.uid,
             avatar: snap.data().avatar,
